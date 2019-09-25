@@ -66,6 +66,9 @@ function main() {
           // socket provides the rsocket interactions fire/forget, request/response,
           // request/stream, etc as well as methods to close the socket.
           socket.requestStream({
+            data: {
+                    'module': document.getElementById("module").value
+            },
             metadata: String.fromCharCode('tick'.length) + 'tick',
           }).subscribe({
             onComplete: () => console.log('complete'),
@@ -94,7 +97,9 @@ function main() {
       console.log("main fuction executed...")
 }
 
-document.addEventListener('DOMContentLoaded', main);
+//document.addEventListener('DOMContentLoaded', main);
+document.getElementById('setModule').addEventListener('click', main);
+
 },{"rsocket-core":19,"rsocket-websocket-client":31}],2:[function(require,module,exports){
 "use strict";
 
