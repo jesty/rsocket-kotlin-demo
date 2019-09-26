@@ -67,7 +67,7 @@ function main() {
           // request/stream, etc as well as methods to close the socket.
           socket.requestStream({
             data: {
-                    'module': document.getElementById("module").value
+                    'value': document.getElementById("module").value
             },
             metadata: String.fromCharCode('tick'.length) + 'tick',
           }).subscribe({

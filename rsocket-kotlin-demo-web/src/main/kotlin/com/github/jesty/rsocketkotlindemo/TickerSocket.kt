@@ -2,12 +2,11 @@ package com.github.jesty.rsocketkotlindemo
 
 import TickerRequest
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.filter
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.onCompletion
+import kotlinx.coroutines.flow.*
 import org.springframework.messaging.handler.annotation.MessageMapping
 import org.springframework.stereotype.Controller
+import rem
+import times
 
 @Controller
 class TickerSocket {
@@ -18,8 +17,19 @@ class TickerSocket {
             delay(1000)
             emit(it)
         }
-    }       .filter { it % request.module == 0 }
-            .onCompletion { println("Flow with module ${request.module} completed.") }
+    }.filter { it % request == 0 }
+            .onCompletion { println("Flow with module ${request.value} completed.") }
+
+    @MessageMapping("multiplicator")
+    fun multiplicator(requestFlow: Flow<TickerRequest>): Flow<Int> = flow {
+        requestFlow.collect { request ->
+            (1..3).forEach {
+                println("emitting $it * $request.module")
+                delay(1000)
+                emit(request * it)
+            }
+        }
+    }
 
 
 }
