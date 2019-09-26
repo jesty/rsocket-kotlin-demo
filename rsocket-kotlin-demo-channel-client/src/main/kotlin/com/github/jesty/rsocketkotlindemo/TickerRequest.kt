@@ -1,1 +1,1 @@
-data class TickerRequest (val module: Int)
+data class TickerRequest (val value: Int)
