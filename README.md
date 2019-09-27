@@ -2,8 +2,8 @@
 
 This example includes two application developed to show how to use RSocket with Spring Boot, Kotlin and Coroutines:
 
-* rsocket-kotlin-demo-web: A Spring Boot application that exposes two RSocket endpoints using the request/stream (finite stream of many) and the channel (bi-directional streams) interaction style.
-* rsocket-kotlin-demo-channel-client: a Kotlin client that connect to the endpoints exposed in rsocket-kotlin-demo-web example.
+* [rsocket-kotlin-demo-web](/rsocket-kotlin-demo-web): A Spring Boot application that exposes two RSocket endpoints using the request/stream (finite stream of many) and the channel (bi-directional streams) interaction style.
+* [rsocket-kotlin-demo-channel-client](/rsocket-kotlin-demo-channel-client): a Kotlin client that connect to the endpoints exposed in rsocket-kotlin-demo-web example.
 
 To develop this example I used:
 
