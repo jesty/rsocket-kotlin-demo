@@ -1,0 +1,1 @@
+data class TickerRequest (val value: Int)
