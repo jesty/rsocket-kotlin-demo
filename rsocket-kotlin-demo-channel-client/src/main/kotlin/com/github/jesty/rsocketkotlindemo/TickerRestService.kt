@@ -20,11 +20,11 @@ class TickerRestService(val rSocketRequester: RSocketRequester) {
                 .retrieveFlow<Int>()
                 .retry()
                 .onEach { println("Ticker: $it") }
-                .onCompletion { println("On completition") }
+                .onCompletion { println("On completion") }
     }
 
     @RequestMapping(value = ["/multiplicator"], produces = ["text/event-stream"], method = [RequestMethod.GET])
-    fun requestStreamWithFlow(): Flow<Int> {
+    fun requestChannel(): Flow<Int> {
         return rSocketRequester
                 .route("multiplicator")
                 .data((2..5)
@@ -32,8 +32,8 @@ class TickerRestService(val rSocketRequester: RSocketRequester) {
                         .map { TickerRequest(it) }
                         .onEach { delay(5000) })
                 .retrieveFlow<Int>()
-                .onEach { println("Moltiplicator: $it") }
-                .onCompletion { println("On completition") }
+                .onEach { println("Multiplicator: $it") }
+                .onCompletion { println("On completion") }
     }
 
 }
