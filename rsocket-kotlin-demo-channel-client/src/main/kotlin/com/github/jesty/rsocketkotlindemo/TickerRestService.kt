@@ -1,6 +1,7 @@
 package com.github.jesty.rsocketkotlindemo
 
 import TickerRequest
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import org.springframework.messaging.rsocket.RSocketRequester
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
+@ExperimentalCoroutinesApi
 class TickerRestService(val rSocketRequester: RSocketRequester) {
 
     @RequestMapping(value = ["/tick"], produces = ["text/event-stream"], method = [RequestMethod.GET])

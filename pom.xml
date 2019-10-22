@@ -18,8 +18,9 @@
 	<description>Demo project for Spring Boot</description>
 
     <modules>
-        <module>rsocket-kotlin-demo-web</module>
-        <module>rsocket-kotlin-demo-channel-client</module>
+		<module>flow-examples</module>
+		<module>rsocket-kotlin-demo-web</module>
+		<module>rsocket-kotlin-demo-channel-client</module>
     </modules>
 
     <properties>
